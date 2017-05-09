@@ -93,9 +93,10 @@ int main (int argc, char *argv[]){
   }
 
   if ( (n= recvfrom (serverSocket, sendbuf, sizeof(sendbuf)-1,0,
-          (struct sockaddr *)&serv_addr, &len)) != strlen(data) )  {
-    printf ("erreur sendto");
-    exit (1);
+          (struct sockaddr *)&serv_addr, &len)) != strlen(sendbuf) )  {
+    //printf ("erreur recvfrom\n");
+    //printf("sendbuf : %s\n", sendbuf);
+    //exit (1);
   }
 
   sendbuf[n]='\0';
