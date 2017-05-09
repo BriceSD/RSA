@@ -45,7 +45,7 @@ int main(int argc, char *argv[]){
 
     int read;
     while (1) {
-      read = recvfrom(client_fd, buf, BUFFER_SIZE, 0, (struct sockaddr*) &client, (socklen_t*) &client_len);
+      read = recvfrom(server_fd, buf, BUFFER_SIZE, 0, (struct sockaddr*) &client, (socklen_t*) &client_len);
       printf("%s", buf);
       fflush(stdout);
 
