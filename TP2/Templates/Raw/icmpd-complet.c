@@ -64,14 +64,14 @@ int main (int argc, char *argv[])
       exit (1); }
     printf( "%d octets ICMP de %s: \n", n, source);
   
-    ip = (struct ip*)rcvbuffer;                           // debut entete IP
+    ip = (struct ip*);                           // debut entete IP
     lenIPHeader = ip->ip_hl * 4;       // ip->ip_hl longueur  en mot de 32 bits 
   
-    icmp =  (struct icmp*)(rcvbuffer + lenIPHeader) ;             // debut entete ICMP
-    ip2 =  (struct ip*)(rcvbuffer+lenIPHeader+8);               // debut en-tete IP contenu dans ICMP
+    icmp =  (struct icmp*) ;             // debut entete ICMP
+    ip2 =  (struct ip*);               // debut en-tete IP contenu dans ICMP
     lenIPHeader2 = ip->ip_hl*4 ;       // longueur  en-tete IP    
     if (ip2->ip_p == IPPROTO_UDP) {
-      udp = (struct udphdr *)(rcvbuffer+lenIPHeader+8+lenIPHeader2) ;                      // debut en-tete UDP
+      udp = (struct udphdr *) ;                      // debut en-tete UDP
       sport = ntohs(udp->source);
       dport = ntohs(udp->dest) ;
       printf (" port source = %d et port destination = %d \n", sport, dport);
